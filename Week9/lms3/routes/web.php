@@ -2,6 +2,10 @@
 use app\Models\Student;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ProfessorController;
+
+
 Route::get('/', function () {
 return view('welcome');
 });
@@ -18,3 +22,5 @@ Route::get(
 [StudentController::class, 'trash']
 )->name('students.restore');
 Route::resource('students', StudentController::class);
+Route::resource('courses', CourseController::class);
+Route::resource('professors', ProfessorController::class);
