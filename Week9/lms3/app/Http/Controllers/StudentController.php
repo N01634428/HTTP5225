@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Http\Requests\StoreStudentRequest;
+use App\Models\Course;  
 
 
 use App\Http\Requests\UpdateStudentRequest;
@@ -24,7 +25,12 @@ return view('students.index', [
 */
 public function create()
 {
-return view('students.create');
+   $courses = Course::all();
+
+        return view('students.create', [
+            'courses' => $courses
+        ]);
+
 }
 /**
 * Store a newly created resource in storage.

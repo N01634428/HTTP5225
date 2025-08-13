@@ -9,7 +9,12 @@ class Course extends Model
 {
     use HasFactory;
 
-    // Allow mass assignment for these columns
+   public function students():BelongsToMany
+   {
+    return $this->belongsToMany(Student::class);
+   }
+
+    
     protected $fillable = [
         'name',
         'description',
